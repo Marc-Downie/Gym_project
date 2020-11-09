@@ -1,14 +1,14 @@
 from db.run_sql import run_sql
 from models.gym import Gym
 from models.customer import Customer
-# import repositories.customer_repository as customer_repository
+import repositories.customer_repository as customer_repository
 
 def save(customer):
     sql = "INSERT INTO gyms (name) VALUES (%s) RETURNING *"
     values = [customer.name]
     results = run_sql(sql, values)
     id = results[0]['id']
-    task.id = id
+    customer.id = id
     return customer
 
 
@@ -19,10 +19,10 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        customer = Customer(row['name'], row['membership'], row['id'])
-        # gym = Gym(row['name'], customers)
-        customers.append(customer)
-    return customer
+        # customer = Customer(row['name'], row['membership'], row['id'])
+        gym = Gym(row['name'])
+        customers.append(gym)
+    return customers
 
 
 def select(id):

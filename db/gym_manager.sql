@@ -4,7 +4,7 @@ DROP TABLE IF EXISTS gyms;
 
 CREATE TABLE gyms(
     id SERIAL PRIMARY KEY,
-    gym_name VARCHAR(255)
+    name VARCHAR(255)
 );
 
 CREATE TABLE customers(
