@@ -5,8 +5,8 @@ DROP TABLE IF EXISTS gyms;
 
 CREATE TABLE gyms(
     id SERIAL PRIMARY KEY,
-    name VARCHAR(255)
-    
+    name VARCHAR(255),
+    activity VARCHAR(255)
 );
 
 CREATE TABLE customers(
@@ -14,7 +14,6 @@ CREATE TABLE customers(
     name VARCHAR(255),
     membership VARCHAR(255),
     gym_id INT REFERENCES gyms(id)
-    
 );
 
 

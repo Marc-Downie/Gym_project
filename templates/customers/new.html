@@ -3,7 +3,7 @@
 
 <h3>Sign up form</h3>
 
-<form action="/sign-up" method="post">
+<form action="/sign-up" method="POST">
   <div>
     <label for="name">Name:</label>
     <input type="text" id="name" name="name" placeholder="Jojo" required autofocus>
@@ -20,10 +20,12 @@
   <div>
     <label for="gym">Gym:</label>
     <select id="gym" name="gym">
-      <option value="chromerias gym">Chromerias Gym</option>
-      <option value="maximum gym">MAXIMUM Gym</option>
+      {% for gym in all_gyms %}
+      <option value="{{ gym.id }}">{{ gym.name }}</option>
+      {% endfor %}
     </select>
   </div>
+
 
   <button type="submit">Sign up</button>
 

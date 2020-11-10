@@ -1,6 +1,7 @@
 import pdb
 from models.gym import Gym
 from models.customer import Customer
+from models.activities import Activity
 
 import repositories.gym_repository as gym_repository
 import repositories.customer_repository as customer_repository
@@ -16,6 +17,7 @@ gym_repository.save(gym_1)
 gym_2 = Gym('MAXIMUM Gym')
 gym_repository.save(gym_2)
 
+activity_1 = Activity(gym_1, 'Running, 60, INTENSE')
 
 customer_1 = Customer('Kip Gyle', 'Premium', gym_1)
 customer_repository.save(customer_1)

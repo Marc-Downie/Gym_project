@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="/customers/{{customer.id}}" method="POST">
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" value="{{customer.name}}" required>
+    </div>
+
+    <div>
+        <label for="membership">Choose Membership:</label>
+        <select id="membership" name="membership">
+            <option value="standard">Standard</option>
+            <option value="premium">Premium</option>
+        </select>
+    </div>
+    
+    <div>
+        <label for="gym">Gym:</label>
+        <select id="gym" name="gym">
+            {% for gym in all_gyms %}
+            <option value="{{ gym.id }}">{{ gym.name }}</option>
+        {% endfor %}
+        </select>
+    </div>
+
+    <button type="submit">Update Customer</button>
+
+</form>
+{% endblock %}

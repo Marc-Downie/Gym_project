@@ -33,7 +33,8 @@ def select(id):
     sql = "SELECT * FROM customers WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
-    customer = Customer(result["name"], result["id"])
+    gym = gym_repository.select(result['gym_id'])
+    customer = Customer(result["name"], result["membership"], gym, result["id"] )
     return customer
 
 
@@ -50,5 +51,5 @@ def delete(id):
 
 def update(customer):
     sql = "UPDATE customers SET (name, membership, gym_id) = (%s, %s, %s) WHERE id = %s"
-    values = [customer.name, customer.membership, customer.id]
+    values = [customer.name, customer.membership, customer.gym.id, customer.id]
     run_sql(sql, values)

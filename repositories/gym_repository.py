@@ -13,21 +13,18 @@ def save(customer):
 
 
 def select_all():
-    customers = []
+    gyms = []
 
     sql = "SELECT * FROM gyms"
     results = run_sql(sql)
 
     for row in results:
-        pass
-        # fix this to refrence gyms
-        # customer = Customer(row['name'], row['membership'], row['id'])
-        # customers.append(customer)
-    return customers
+        gym = Gym(row["name"], row["id"])
+        gyms.append(gym)
+    return gyms
 
 
 def select(id):
-    gym = None
     sql = "SELECT * FROM gyms WHERE id = %s"
     values = [id]
     result = run_sql(sql, values)[0]
