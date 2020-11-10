@@ -1,12 +1,13 @@
 from db.run_sql import run_sql
 from models.gym import Gym
 from models.customer import Customer
+from repositories import gym_repository
 
 
 
 def save(customer):
-    sql = "INSERT INTO customers (name, membership) VALUES (%s, %s) RETURNING *"
-    values = [customer.name, customer.membership]
+    sql = "INSERT INTO customers (name, membership, gym_id) VALUES (%s, %s, %s) RETURNING *"
+    values = [customer.name, customer.membership, customer.gym.id]
     results = run_sql(sql, values)
     id = results[0]['id']
     customer.id = id
@@ -21,7 +22,8 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        customer = Customer(row['name'], row['membership'], row['id'])
+        gym = gym_repository.select(row['gym_id'])
+        customer = Customer(row['name'], row['membership'], gym, row['id'])
         customers.append(customer)
     return customers
 
@@ -47,6 +49,6 @@ def delete(id):
 
 
 def update(customer):
-    sql = "UPDATE customers SET (name, membership) = (%s, %s) WHERE id = %s"
+    sql = "UPDATE customers SET (name, membership, gym_id) = (%s, %s, %s) WHERE id = %s"
     values = [customer.name, customer.membership, customer.id]
     run_sql(sql, values)

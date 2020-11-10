@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h3>Sign up form</h3>
+
+<form action="/sign-up" method="post">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" placeholder="Jojo" required autofocus>
+  </div>
+
+  <div>
+    <label for="membership">Choose Membership:</label>
+    <select id="membership" name="membership">
+      <option value="standard">Standard</option>
+      <option value="premium">Premium</option>
+    </select>
+  </div>
+
+  <div>
+    <label for="gym">Gym:</label>
+    <select id="gym" name="gym">
+      <option value="chromerias gym">Chromerias Gym</option>
+      <option value="maximum gym">MAXIMUM Gym</option>
+    </select>
+  </div>
+
+  <button type="submit">Sign up</button>
+
+</form>
+
+{% endblock %}
