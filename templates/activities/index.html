@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Activities</h2>
+
+{% for activity in activities %}
+
+<section>
+    <p>{{ activity.gym_id }}</p>
+    <p>{{ activity.activity_type }}</p>
+    <p>{{ activity.duration }}</p>
+    <p>{{ activity.difficulty }}</p>
+</section>
+
+{% endfor %}
+
+{% endblock content %}

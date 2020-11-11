@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS customers;
 DROP TABLE IF EXISTS gyms;
-
+DROP TABLE IF EXISTS activities
 
 
 CREATE TABLE gyms(
@@ -16,6 +16,12 @@ CREATE TABLE customers(
     gym_id INT REFERENCES gyms(id)
 );
 
-
+CREATE TABLE activities(
+    id SERIAL PRIMARY KEY,
+    gym_id INT REFERENCES gyms(id),
+    activity VARCHAR(255),
+    duration VARCHAR(255),
+    difficulty VARCHAR(255)
+);
 
 

@@ -1,7 +1,7 @@
 from db.run_sql import run_sql
 from models.gym import Gym
 from models.customer import Customer
-import repositories.customer_repository as customer_repository
+
 
 def save(customer):
     sql = "INSERT INTO gyms (name) VALUES (%s) RETURNING *"
