@@ -6,10 +6,10 @@
 {% for activity in activities %}
 
 <section>
-    <p>{{ activity.gym.name }}</p>
-    <p>{{ activity.activity_type }}</p>
-    <p>{{ activity.duration }}</p>
-    <p>{{ activity.difficulty }}</p>
+    <p>Gym: {{ activity.gym.name }}</p>
+    <p>Type of Activity: {{ activity.activity_type }}</p>
+    <p>Duration: {{ activity.duration }}</p>
+    <p>Difficulty: {{ activity.difficulty }}</p>
     <a href="/activities/{{activity.id}}/edit">Edit</a>
     <form action="/activities/{{activity.id}}/delete" method="POST">
         <input type="submit" value="delete">
