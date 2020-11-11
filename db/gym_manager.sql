@@ -1,6 +1,7 @@
+DROP TABLE IF EXISTS activities;
 DROP TABLE IF EXISTS customers;
 DROP TABLE IF EXISTS gyms;
-DROP TABLE IF EXISTS activities
+
 
 
 CREATE TABLE gyms(

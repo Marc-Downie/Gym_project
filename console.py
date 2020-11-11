@@ -5,8 +5,9 @@ from models.activities import Activity
 
 import repositories.gym_repository as gym_repository
 import repositories.customer_repository as customer_repository
+import repositories.activity_repository as activity_repository
 
-
+activity_repository.delete_all()
 customer_repository.delete_all()
 gym_repository.delete_all()
 
@@ -17,7 +18,8 @@ gym_repository.save(gym_1)
 gym_2 = Gym('MAXIMUM Gym')
 gym_repository.save(gym_2)
 
-activity_1 = Activity(gym_1, 'Running, 60, INTENSE')
+activity_1 = Activity(gym_1, 'Running', 60, 'INTENSE')
+activity_repository.save(activity_1)
 
 customer_1 = Customer('Kip Gyle', 'Premium', gym_1)
 customer_repository.save(customer_1)
